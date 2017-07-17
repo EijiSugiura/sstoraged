@@ -1,7 +1,7 @@
 /**
    @file write.h
    @brief SCSI Write handler
-   @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+   @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
    @version $Id: write.h 164 2007-07-03 05:36:07Z sugiura $
  */
 

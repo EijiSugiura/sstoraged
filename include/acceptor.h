@@ -1,7 +1,7 @@
 /**
    @file acceptor.h
    @brief Port Acceptor class
-   @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+   @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
    @version $Id: acceptor.h 42 2007-04-17 03:28:02Z sugiura $
  */
 #ifndef __ACCEPTOR_H__

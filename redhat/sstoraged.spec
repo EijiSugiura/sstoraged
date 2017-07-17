@@ -7,7 +7,7 @@ Version: 0.1.3
 Release: %{release}
 License: GPL
 Group: System Environment/Daemons
-URL: http://storage.isp.jp/
+URL: https://github.com/EijiSugiura/sstoraged
 Source0: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 

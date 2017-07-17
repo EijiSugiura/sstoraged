@@ -1,7 +1,7 @@
 /** 
  * @file  scsi/protocol.h
  * @brief SCSI common definitions
- * @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+ * @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
  * @version $Id: protocol.h 139 2007-06-13 05:37:16Z sugiura $
  */
 #ifndef __SCSI_PROTOCOL_H__

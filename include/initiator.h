@@ -1,7 +1,7 @@
 /**
    @file initiator.h
    @brief iSCSI Initiator classes
-   @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+   @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
    @version $Id: initiator.h 91 2007-05-22 06:54:44Z sugiura $
  */
 #ifndef __ISCSI_INITIATOR_H__

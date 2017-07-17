@@ -1,7 +1,7 @@
 /** 
  * @file  writecache.h
  * @brief Write Cache class
- * @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+ * @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
  * @version $Id: writecache.h 288 2007-08-21 03:44:04Z sugiura $
  */
 #ifndef __WRITE_CACHE_H__

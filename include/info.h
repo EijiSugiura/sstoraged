@@ -1,7 +1,7 @@
 /** 
  * @file  info.h
  * @brief Info classes
- * @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+ * @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
  * @version $Id: info.h 150 2007-06-27 04:49:46Z sugiura $
  */
 #ifndef __SSTORAGE_INFO_H__

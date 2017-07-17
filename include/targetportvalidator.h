@@ -1,7 +1,7 @@
 /**
    @file targetportvalidator.h
    @brief TargetPort validator
-   @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+   @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
    @version $Id: targetportvalidator.h 40 2007-04-16 05:59:01Z sugiura $
  */
 #ifndef __TARGETPORTVALIDATOR_H__

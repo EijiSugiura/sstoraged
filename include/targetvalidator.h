@@ -1,7 +1,7 @@
 /**
    @file targetvalidator.h
    @brief Target Validator
-   @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+   @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
    @version $Id: targetvalidator.h 40 2007-04-16 05:59:01Z sugiura $
  */
 #ifndef __TARGET_VALIDATOR_H__

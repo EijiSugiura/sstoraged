@@ -31,13 +31,13 @@ class RootValidatorTestSuite : public CxxTest::TestSuite
 		RootValidator validator;
  		TS_ASSERT_EQUALS(validator.validAttr("GlobalTargetName", (string)""), false);
  		TS_ASSERT_EQUALS(validator.validAttr("GlobalTargetName", (string)"A"), true);
- 		TS_ASSERT_EQUALS(validator.validAttr("GlobalTargetName", (string)"iqn.2006-12.jp.isp:sStorage"), true);
+ 		TS_ASSERT_EQUALS(validator.validAttr("GlobalTargetName", (string)"iqn.2006-12.com.example:sStorage"), true);
 	}
  	void testLocalTargetName(){
 		RootValidator validator;
  		TS_ASSERT_EQUALS(validator.validAttr("LocalTargetName", (string)""), false);
  		TS_ASSERT_EQUALS(validator.validAttr("LocalTargetName", (string)"A"), true);
- 		TS_ASSERT_EQUALS(validator.validAttr("LocalTargetName", (string)"iqn.2006-12.jp.isp:sStorage0"), true);
+ 		TS_ASSERT_EQUALS(validator.validAttr("LocalTargetName", (string)"iqn.2006-12.com.example:sStorage0"), true);
 	}
 // 	void testTargetPort(){
 // 		RootValidator validator;

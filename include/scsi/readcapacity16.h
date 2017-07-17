@@ -1,7 +1,7 @@
 /**
    @file readcapacity16.h
    @brief SCSI ReadCapacity16 handler
-   @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+   @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
    @version $Id: readcapacity16.h 228 2007-07-23 04:42:42Z sugiura $
  */
 

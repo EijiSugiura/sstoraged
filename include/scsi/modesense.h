@@ -1,7 +1,7 @@
 /**
    @file modesense.h
    @brief SCSI ModeSense handler
-   @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+   @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
    @version $Id: modesense.h 312 2007-09-28 00:56:17Z sugiura $
  */
 

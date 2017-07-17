@@ -1,7 +1,7 @@
 /** 
  * @file  nopout.h
  * @brief Nop-Out header definitions
- * @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+ * @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
  * @version $Id: nopout.h 156 2007-06-28 07:18:19Z sugiura $
  */
 #ifndef __ISCSI_NOPOUT_H__

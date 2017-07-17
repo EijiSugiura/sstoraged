@@ -49,7 +49,7 @@ class VolumeConfiguratorTestSuite : public CxxTest::TestSuite
  		TS_ASSERT_EQUALS(counter, 3U);
  		TS_ASSERT_EQUALS(volume->size(), 3U);
  		VolumeInfo info((string)"No.4");
-		RealVolume part4("iqn.2006-12.jp.isp:sStorage0", "/tmp/dummy4",
+		RealVolume part4("iqn.2006-12.com.example:sStorage0", "/tmp/dummy4",
 				 0, 1024);
 		TS_ASSERT_EQUALS(info.appendOrgPart(part4), true);
 // 		TS_ASSERT_EQUALS(volume->add(info), true);
@@ -63,7 +63,7 @@ class VolumeConfiguratorTestSuite : public CxxTest::TestSuite
  		TS_ASSERT_EQUALS(counter, 4U);
  		TS_ASSERT_EQUALS(volume->size(), 4U);
  		VolumeInfo info2((string)"No.5");
-		RealVolume part5("iqn.2006-12.jp.isp:sStorage0", "/tmp/dummy5",
+		RealVolume part5("iqn.2006-12.com.example:sStorage0", "/tmp/dummy5",
 				 0, 1024);
 		TS_ASSERT_EQUALS(info2.appendOrgPart(part5), true);
 // 		TS_ASSERT_EQUALS(volume->add(info2), true);
@@ -77,7 +77,7 @@ class VolumeConfiguratorTestSuite : public CxxTest::TestSuite
  		TS_ASSERT_EQUALS(counter, 5U);
  		TS_ASSERT_EQUALS(volume->size(), 5U);
  		VolumeInfo info3((string)"No.6");
-		RealVolume part6("iqn.2006-12.jp.isp:sStorage0", "/tmp/dummy6",
+		RealVolume part6("iqn.2006-12.com.example:sStorage0", "/tmp/dummy6",
 				 0, 1024);
 		TS_ASSERT_EQUALS(info3.appendOrgPart(part6), true);
 // 		TS_ASSERT_EQUALS(volume->add(info3), true);
@@ -110,7 +110,7 @@ class VolumeConfiguratorTestSuite : public CxxTest::TestSuite
   		TS_ASSERT_EQUALS(counter, 3U);
   		TS_ASSERT_EQUALS(volume->size(), 3U);
   		VolumeInfo info((string)"No.4");
- 		RealVolume part4("iqn.2006-12.jp.isp:sStorage0", "/tmp/dummy4",
+ 		RealVolume part4("iqn.2006-12.com.example:sStorage0", "/tmp/dummy4",
  				 0, 1024);
  		TS_ASSERT_EQUALS(info.appendOrgPart(part4), true);
 //  		TS_ASSERT_EQUALS(volume->add(info), true);
@@ -382,7 +382,7 @@ class VolumeConfiguratorTestSuite : public CxxTest::TestSuite
  		delete binder;
   		VolumeConfigurator *volume = new VolumeConfigurator;
   		VolumeInfo info((string)"No.1");
- 		RealVolume part4("iqn.2006-12.jp.isp:sStorage0", "/tmp/dummy4",
+ 		RealVolume part4("iqn.2006-12.com.example:sStorage0", "/tmp/dummy4",
  				 0, 1024);
  		TS_ASSERT_EQUALS(info.appendOrgPart(part4), true);
 //  		TS_ASSERT_EQUALS(volume->add(info), true);

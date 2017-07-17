@@ -27,7 +27,7 @@
  		 "pattern" : "sstorage"}
  		,
  		{"desc" : "login 1",
- 		 "cmd" : "sudo /sbin/iscsiadm -m node -T iqn.2001-04.jp.co.isp.lb.rudolph:sstorage -p 10.12.3.1:3260,1 --login | sleep 1",
+ 		 "cmd" : "sudo /sbin/iscsiadm -m node -T iqn.2001-04.com.example.iscsi:sstorage -p 10.12.3.1:3260,1 --login | sleep 1",
  	  	 "log" : "sudo tail /var/log/messages |",
  		 "pattern" : "Attached scsi disk sda"}
  		,
@@ -47,12 +47,12 @@
  		 "pattern" : "Writing superblocks and filesystem accounting information: done"}
 		,
  		{"desc" : "logout",
- 		 "cmd" : "sudo /sbin/iscsiadm -m node -T iqn.2001-04.jp.co.isp.lb.rudolph:sstorage -p 10.12.3.1:3260,1 --logout | sleep 1",
+ 		 "cmd" : "sudo /sbin/iscsiadm -m node -T iqn.2001-04.com.example.iscsi:sstorage -p 10.12.3.1:3260,1 --logout | sleep 1",
  	  	 "log" : "sudo tail /var/log/messages |",
  		 "pattern" : "Synchronizing SCSI cache"}
 		,
  		{"desc" : "login 2",
- 		 "cmd" : "sudo /sbin/iscsiadm -m node -T iqn.2001-04.jp.co.isp.lb.rudolph:sstorage -p 10.12.3.1:3260,1 --login | sleep 1",
+ 		 "cmd" : "sudo /sbin/iscsiadm -m node -T iqn.2001-04.com.example.iscsi:sstorage -p 10.12.3.1:3260,1 --login | sleep 1",
  	  	 "log" : "sudo tail /var/log/messages |",
  		 "pattern" : "Attached scsi disk sda"}
  		,
@@ -96,17 +96,17 @@
  		 "pattern" : "Filesystem"}
 		,
  		{"desc" : "logout",
- 		 "cmd" : "sudo /sbin/iscsiadm -m node -T iqn.2001-04.jp.co.isp.lb.rudolph:sstorage -p 10.12.3.1:3260,1 --logout | sleep 1",
+ 		 "cmd" : "sudo /sbin/iscsiadm -m node -T iqn.2001-04.com.example.iscsi:sstorage -p 10.12.3.1:3260,1 --logout | sleep 1",
  	  	 "log" : "sudo tail /var/log/messages |",
  		 "pattern" : "Synchronizing SCSI cache"}
 	]
 	,
 	"post" : [
  		{"desc" : "logout",
- 		 "cmd" : "sudo /sbin/iscsiadm -m node -T iqn.2001-04.jp.co.isp.lb.rudolph:sstorage -p 10.12.3.1:3260,1 --logout"}
+ 		 "cmd" : "sudo /sbin/iscsiadm -m node -T iqn.2001-04.com.example.iscsi:sstorage -p 10.12.3.1:3260,1 --logout"}
 		,
 		{"desc" : "delete target",
-		 "cmd" : "sudo /sbin/iscsiadm --mode node -o delete -T iqn.2001-04.jp.co.isp.lb.rudolph:sstorage -p 10.12.3.1:3260"}
+		 "cmd" : "sudo /sbin/iscsiadm --mode node -o delete -T iqn.2001-04.com.example.iscsi:sstorage -p 10.12.3.1:3260"}
 		,
 		{"desc" : "remove temporal mount point",
 		 "cmd" : "rmdir /tmp/iscsi"}
