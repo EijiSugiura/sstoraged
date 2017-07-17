@@ -1,0 +1,529 @@
+=pod
+
+=head1 NAME
+
+sstoraged.conf - sstoraged configuration file
+
+=head1 DESCRIPTION
+
+B<sstoraged.conf> is the configuration file for B<sstoraged>.
+The general format of B<sstoraged.conf> is B<JSON>(JavaScript Object Notification) format.
+
+There are large number of attributes that can be specified,
+but these mostly fall into 5 categories, as follows.
+
+=over
+
+=item General settings
+
+=item iSCSI protocol configurations
+
+=item iSCSI Target specific settings
+
+=item iSCSI Initiator specific settings
+
+=item Volume settings
+
+=back
+
+In General settings,
+B<ConsolePort>, B<GlobalTargetName> & B<LocalTargetName> attributes 
+B<MUST BE SPECIFIED> manually,
+but others can be managed by B<WWW console> afterword.
+Volume settings are complicated a little, so we recommend the use of B<WWW console>.
+
+=head1 General
+
+General setting attributes are as follows.
+
+=head2 GlobalTargetName 
+
+Default iSCSI target name, served to initiator.
+
+ Default
+ "GlobalTargetName" : "iqn.2006-12.jp.isp:sStorage",
+
+Length MIN. 1 - to - MAX. PATH_MAX
+
+=head2 LocalTargetName
+
+Local target name, used within B<sstoraged> clouds only, NOT served to initiator.
+
+ Default
+ "LocalTargetName" : "iqn.2006-12.jp.isp:sStorage0",
+
+Length MIN. 1 - to - MAX. PATH_MAX
+
+=head2 TargetPort
+
+iSCSI target listening port.
+Format is B<[<FQDN>]:<port>> or B<[<IPv4/IPv6 address>]:port>.
+
+CAUTION! this value is array, so it is possible that specify multiple listening port.
+
+ Default
+ "TargetPort" : ["[0.0.0.0]:3260"],
+
+=head2 ConsolePort
+
+WWW consle listening port.
+
+ Default
+ "ConsolePort" : "[0.0.0.0]:32680",
+
+=head2 LogFile
+
+File pathname, to preserve log messages.
+
+ Default
+ "LogFile" : "/var/log/sstoraged/system.log",
+
+Length MIN. 1 - to - MAX. PATH_MAX
+
+=head2 LogLevel
+
+Maximum log level, for logging.
+
+ Default
+ "LogLevel" : "info",
+
+=head2 PoolSoftLimit
+
+Lower limit of write cache pool size.
+
+ Default
+ "PoolSoftLimit" : 134217728,
+
+=head2 PoolHardLimit
+
+Upper limit of write cache pool size.
+
+ Default
+ "PoolHardLimit" : 268435456,
+
+=head1 iSCSI
+
+iSCSI specific options.
+It can be specified in B<Initiator> section too, for per initiator setting.
+
+=head2 MaxConnections
+
+Maximum iSCSI connections per iSCSI session.
+
+ Default
+ "MaxConnections" : 1,
+
+MIN. 1 - to - MAX. 8
+
+=head2 InitialR2T
+
+B<true> means, R2T is necessary before Data-Out.
+B<false> means, do unsolicited write.
+
+ Default
+ "InitialR2T" : false,
+
+=head2 ImmediateData
+
+B<true> means, WRITE command PDU has data segment.
+B<false> means, WRITE command PDU has NO data segment.
+
+ Default
+ "ImmediateData" : true,
+
+=head2 MaxRecvDataSegmentLength [B]
+
+Data segment size, iSCSI target can receive in a PDU.
+
+ Default
+ "MaxRecvDataSegmentLength" : 65536,
+
+MIN. 512 - to - MAX. 2**24-1
+
+=head2 MaxBurstLength [B]
+
+Total data segment size, can deliver with Data-In/Out PDUs.
+
+ Default
+ "MaxBurstLength" : 16776192,
+
+MIN. 512 - to - MAX. 2**24-1
+
+=head2 FirstBurstLength [B]
+
+Unsolicited + Immediate WRITE size.
+
+ Default
+ "FirstBurstLength" : 262144,
+
+MIN. 512 - to - MAX. 2**24-1
+
+=head2 DefaultTime2Wait [s]
+
+Minimum time to
+wait before attempting an explicit/implicit logout or an active task
+reassignment after an unexpected connection termination or a
+connection reset.
+
+ Default
+ "DefaultTime2Wait" : 2,
+
+MIN. 0 - to - MAX. 3600
+
+=head2 DefaultTime2Retain [s]
+
+Maximum time an initial wait (Time2Wait), before which an active task reassignment
+is still possible after an unexpected connection termination or a
+connection reset.
+
+ Default
+ "DefaultTime2Retain" : 20,
+
+MIN. 0 - to - MAX. 3600
+
+=head2 MaxOutstandingR2T
+
+Maximum number of outstanding R2Ts per task.
+
+ Default
+ "MaxOutstandingR2T" : 1,
+
+MIN. 1 - to - MAX. 65535
+
+=head2 DataPDUInOrder
+
+Always true
+
+ Default
+ "DataPDUInOrder" : true,
+
+=head2 DataSequenceInOrder
+
+Always true.
+
+ Default
+ "DataSequenceInOrder" : true,
+
+=head2 ErrorRecoveryLevel
+
+ Default
+ "ErrorRecoveryLevel" : 0,
+
+MIN. 0 - to - MAX. 2
+
+=head2 HeaderDigest
+
+Valid values are B<CRC32> and B<None>.
+
+ Default
+ "HeaderDigest" : "None",
+
+=head2 DataDigest
+
+Valid values are B<CRC32> and B<None>.
+
+ Default
+ "DataDigest" : "None",
+
+=head2 NopOutInterval [s]
+
+Minimum interval to send out Nop-Out as pings.
+
+ Default
+ "NopOutInterval"     : 30,
+
+=head2 NopOutTimeout [s]
+
+Maximum time to wait for a Nop-Out reply (Nop-In).
+
+ Default
+ "NopOutTimeout"      : 5,
+
+=head2 IFMarker
+
+B<true> means, ???
+B<false> means, ???
+
+ Default
+ "IFMarker" : false,
+
+=head2 OFMarker
+
+B<true> means, ???
+B<false> means, ???
+
+ Default
+ "OFMarker" : false,
+
+=head1 Target
+
+Target section is a list of local targets, belong to B<sstoraged> clouds.
+The list may be updated when add/remove a local target events happened.
+
+An entry in Target section may have attributes as follows.
+
+=head2 TargetAlias
+
+Local target alias.
+Default is same to B<TargetName>.
+
+=head2 TargetName
+
+Local target name, its format is iSCSI Qualified Name.
+B<TargetName> MUST BE SPECIFIED.
+
+=head2 TargetAddress
+
+iSCSI target listen port, its format is [address]:port
+B<TargetAddress> MUST BE SPECIFIED.
+
+=head1 Initiator
+
+Initiator section is a list of iSCSI initiators.
+
+An entry in Initiator section may have attributes as follows.
+
+=head2 InitiatorAlias
+
+iSCSI initiator name alias.
+Default is same to B<InitiatorName>.
+
+=head2 InitiatorAddress
+
+iSCSI initiator IP address, or hostname.
+
+=head2 InitiatorName
+
+iSCSI initiator name, its format is iSCSI Qualified Name.
+B<InitiatorName> MUST BE SPECIFIED.
+
+=head2 LUN
+
+LUN is a list of Logical Unit names for an iSCSI initiator.
+Volume section must have specified Logical Unit name.
+
+=head2 DiscoveryAuthMethod
+
+Authenticate method for discovery session.
+Valid values are "None" and "CHAP".
+
+ Default
+ "DiscoveryAuthMethod" : "None",
+
+=head2 DiscoveryInitiatorUsername
+
+Discovery session CHAP username for initiator.
+
+=head2 DiscoveryInitiatorPassword
+
+Discovery session CHAP password for initiator.
+
+=head2 DiscoveryTargetUsername
+
+Discovery session CHAP username for target.
+
+=head2 DiscoveryTargetPassword
+
+Discovery session CHAP password for target.
+
+=head2 SessionAuthMethod
+
+Authenticate method for normal operational session.
+Valid values are "None" and "CHAP".
+
+ Default
+ "SessionAuthMethod"   : "None",
+
+=head2 SessionInitiatorUsername
+
+Normal operations session CHAP username for initiator.
+
+=head2 SessionInitiatorPassword
+
+Normal operations session CHAP password for initiator.
+
+=head2 SessionTargetUsername
+
+Normal operations session CHAP username for target.
+
+=head2 SessionTargetPassword
+
+Normal operations session CHAP password for target.
+
+=head1 Volume settings
+
+Volume section is a list of LUNs.
+The list may be updated with various events, LUN modification by WWW console,
+Virtual Storage Swap, Backup Storage Rebuilding, and so on.
+
+An entry in Volume section may have attributes as follows.
+
+=head2 VolumeName
+
+Logical Unit name.
+This attribute MUST BE SPECIFIED.
+
+=head2 Main
+
+Main online B<Volume INFO>.
+This attribute MUST BE SPECIFIED.
+
+=head2 Copy
+
+List of Copy B<Volume INFO>s.
+
+=head2 Volume INFO
+
+B<Volume INFO> includes B<Host>, B<Path>, B<Start> and B<Count>.
+
+B<Host> is LocalTargetName, which serves volume.
+
+B<Path> is real storage pathname.
+
+B<Start> is begining offset in storage, at 512[B] units.
+
+B<Count> is ending offset in storage at 512[B] units.
+
+=head1 EXAMPLES
+
+ {
+ // General settings
+ "GlobalTargetName" : "iqn.2006-12.jp.isp:sStorage",
+ "LocalTargetName" : "iqn.2006-12.jp.isp:sStorage0",
+ "TargetPort" : ["[0.0.0.0]:3260"],
+ "ConsolePort" : "[0.0.0.0]:32680",
+ "LogFile" : "/var/log/sstoraged/system.log",
+ "LogLevel" : "info",
+ 
+ // Global iSCSI configutations
+ "MaxConnections" : 1,
+ "InitialR2T" : false,
+ "ImmediateData" : true,
+ "FirstBurstLength" : 262144,
+ "MaxBurstLength" : 16776192,
+ "MaxRecvDataSegmentLength" : 65536,
+ "MaxOutstandingR2T" : 1,
+ "DefaultTime2Wait" : 2,
+ "DefaultTime2Retain" : 20,
+ "HeaderDigest" : "None",
+ "DataDigest" : "None",
+ "NopOutInterval"     : 30,
+ "NopOutTimeout"      : 5,
+ 
+ // Target definitions
+ "Target" : [
+     {
+         "TargetAlias"   : "sStorage0",
+         "TargetName"    : "iqn.2006-12.jp.isp:sStorage0",
+ 	 "TargetAddress" : "[192.168.0.1]:3260"
+     },
+     {
+ 	 "TargetAlias"   : "sStorage1",
+         "TargetName"    : "iqn.2006-12.jp.isp:sStorage1",
+ 	 "TargetAddress" : "[192.168.0.2]:3260"
+     },
+     {
+	 "TargetAlias"   : "sStorage2",
+         "TargetName"    : "iqn.2006-12.jp.isp:sStorage2",
+	 "TargetAddress" : "[192.168.0.3]:3260"
+     }
+ ],
+ 
+ // per Initiator configurations
+ "Initiator" : [
+     {
+         "InitiatorAlias"      : "hogehoge"
+         "DiscoveryAuthMethod" : "None",
+         "SessionAuthMethod"   : "None",
+         "InitiatorAddress"    : "192.168.0.100",
+         "InitiatorName"       : "iqn.1991-05.com.microsoft:hogehoge",
+         "LUN" : [
+             "LV0",
+             "LV1"
+         ],
+         "MaxConnections" : 4
+     },
+     {
+         "InitiatorAlias"             : "CHAP Session"
+         "DiscoveryAuthMethod"        : "None",
+         "SessionAuthMethod"          : "CHAP",
+ 	 "SessionInitiatorUsername"   : "username",
+ 	 "SessionInitiatorPassword"   : "password",
+	 "SessionTargetUsername"      : "username",
+	 "SessionTargetPassword"      : "password"
+         "LUN" : [
+             "LV2"
+         ],
+         "FirstBurstLength" : 1048576
+     }
+ ],
+ 
+ // Volume settings
+ "Volume" : [
+     {
+         "VolumeName" : "LV0",
+         "Main" : [
+             {
+                 "Host"  : "iqn.2006-12.jp.isp:sStorage0",
+                 "Path"  : "/dev/sdc",
+                 "Start" : 0,
+                 "Count" : 1024
+             }
+         ]
+     },
+     {
+         "VolumeName" : "LV1",
+         "Main" : [
+             {
+                 "Host"  : "iqn.2006-12.jp.isp:sStorage0",
+                 "Path"  : "/dev/sdb",
+                 "Start" : 0,
+                 "Count" : 1024
+             },
+             {
+                 "Host"  : "iqn.2006-12.jp.isp:sStorage1",
+                 "Path"  : "/tmp/storage.dat",
+                 "Start" : 0,
+                 "Count" : 2048
+             }
+         ],
+         "Copy" : [
+             [
+                 {
+                     "Host"  : "iqn.2006-12.jp.isp:sStorage2",
+                     "Path"  : "/tmp/storage.dat",
+                     "Start" : 0,
+                     "Count" : 3072
+                 }
+             ]
+         ]
+     },
+     {
+         "VolumeName" : "LV2",
+         "Main" : [
+             {
+                 "Host"  : "iqn.2006-12.jp.isp:sStorage1",
+                 "Path"  : "/tmp/storage2.dat",
+                 "Start" : 0,
+                 "Count" : 1024
+             }
+         ]
+     }
+ ]
+ 
+ }
+
+=head1 FILES
+
+=over
+
+=item F</etc/sstorage/sstoraged.conf>
+Configuration file for B<sstoraged>
+
+=back
+
+=head1 SEE ALSO
+
+B<sstoraged>(5)
+
+=cut

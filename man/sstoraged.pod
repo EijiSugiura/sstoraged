@@ -1,0 +1,87 @@
+=pod
+
+=head1 NAME
+
+sstoraged - Software Storage daemon
+
+=head1 SYNOPSIS
+
+B<sstoraged> [B<-h>|B<--help>] [B<-v>|B<--version>] [B<-d>|B<--debug>]
+[B<-c> F<config file> | B<--config>=F<config file>]
+[B<-p> F<PID file> | B<--pid>=F<PID file>]
+
+=head1 DESCRIPTION
+
+B<sstoraged> is an iSCSI target. It is designed to cooperate with other B<sstoraged>,
+and many enhancements are included in.
+
+=head1 OPTIONS
+
+=over
+
+=item B<-h>
+
+=item B<--help>
+
+Help option. Output a short summary of available command line options.
+
+=item B<-v>
+
+=item B<--version>
+
+Version option. Print version number of B<sstoraged>, and then exit.
+
+=item B<-d>
+
+=item B<--debug>
+
+Debug option. Run as foreground job, and print debug logs to standard output.
+
+=item B<-c> F<config file>
+
+=item B<--config>=F<config file>
+
+Configuration file option.
+Set configuration file path, to read during server startup.
+The default is F</etc/sstorage/sstoraged.conf>.
+
+See F<sstoraged.conf>(5), about configuration file format, attributes, and so on.
+
+=item B<-p> F<PID file>
+
+=item B<--pid>=F<PID file>
+
+PID file option.
+Set PID file path, to output process ID after successful server startup.
+The default is F</var/run/sstoraged>.
+
+=back
+
+=head1 SIGNALS
+
+B<sstoraged> handles some signals.
+
+=over
+
+=item INT,TERM
+
+These signals tell B<sstoraged> to shut down immediately.
+Any sessions in progress get aborted.
+
+=item USR1
+
+This signal tells B<sstoraged> to shut down gracefully,
+as soon as current sessions are passed to the other B<sstoraged>.
+
+=item HUP
+
+This signal tells B<sstoraged> to close and re-open its log file,
+for instance if you rotated the logs and want it to start using the new one.
+
+=back
+
+=head1 SEE ALSO
+
+B<sstoraged.conf>(5)
+
+=cut

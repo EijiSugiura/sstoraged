@@ -1,0 +1,33 @@
+{
+	"test" : [
+		{"desc" : "version option",
+		 "cmd" : "../src/sstoraged -v",
+	  	 "log" : "stdout",
+		 "pattern" : "sstoraged 0.1"}
+		,
+		{"desc" : "help option",
+		 "cmd" : "../src/sstoraged -h",
+	  	 "log" : "stdout",
+		 "pattern" : "sstoraged \\[-d"}
+		,
+		{"desc" : "config option : null configuration file",
+		 "cmd" : "../src/sstoraged -c ./null.conf",
+	  	 "log" : "stderr",
+		 "pattern" : "Failed to parse configuration"}
+		,
+//		{"desc" : "config option : empty configuration file",
+//		 "cmd" : "../src/sstoraged -c ./empty.conf",
+//	  	 "log" : "stderr",
+//		 "pattern" : "Failed to parse configuration"}
+//		,
+		{"desc" : "debug option",
+		 "cmd" : "../src/sstoraged -d -c ./test.conf -p ./sstoraged.pid & \\\n sleep 1 ; kill `cat ./sstoraged.pid`",
+	  	 "log" : "stdout",
+		 "pattern" : "Entering application"}
+		,
+		{"desc" : "start application",
+		 "cmd" : "../src/sstoraged -c ./test.conf -p ./sstoraged.pid & \\\n sleep 1 ; kill `cat ./sstoraged.pid`",
+	  	 "log" : "./sstoraged.log",
+		 "pattern" : "Entering application"}
+	]
+}
