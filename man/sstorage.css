@@ -1,0 +1,48 @@
+BODY {
+background : white;
+color : black;
+font-family : times,serif;
+margin : 0px;
+padding : 1ex;
+}
+A:link, A:visited {
+background : transparent;
+color : #006699;
+}
+TABLE {
+border-collapse : collapse;
+border-spacing : 0px;
+border-width : 0px;
+color : inherit;
+}
+PRE {
+background : #eeeeee;
+border : 1px solid #888888;
+color : black;
+padding-top : 1em;
+padding-bottom : 1em;
+write-space : pre;
+}
+H1 {
+background : transparent;
+color : #006699;
+font-size : 120%;
+font-family : tahoma,sans-serif;
+}
+H2 {
+background : transparent;
+color : #006699;
+font-size : 110%;
+font-family : tahoma,sans-serif;
+}
+HR {
+border-style:ridge;
+border-color:#888888;
+border-width:1px 0px;
+}
+CODE {
+background : #eeeeee;
+border : 1px solid #888888;
+color : black;
+font-family : alial,sans-serif;
+}

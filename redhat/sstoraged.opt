@@ -1,0 +1,5 @@
+# sstoraged options
+# [-d|--debug]
+# [-c config_file|--config=config_file]
+# [-p PID_file|--pid=PID_file]
+COMMAND_LINE_OPTIONS=""

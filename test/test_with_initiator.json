@@ -1,0 +1,114 @@
+{
+	"prep" : [
+		{"desc" : "check iscsi-initiator service",
+		 "cmd" : "sudo /sbin/service iscsi status"}
+		,
+		{"desc" : "check sda is NOT exists",
+		 "cmd" : "ls /dev/sda 2>/dev/null | wc -l"}
+		,
+		{"desc" : "create temporal mount point",
+		 "cmd" : "mkdir -p /tmp/iscsi"}
+	]
+	,
+	"test" : [
+		{"desc" : "initial",
+		 "cmd" : "sudo /sbin/iscsiadm -m node",
+	  	 "log" : "stderr",
+		 "pattern" : "iscsiadm: no records found!"}
+ 		,
+ 		{"desc" : "discovery",
+ 		 "cmd" : "sudo /sbin/iscsiadm --mode discovery --type sendtargets --portal 10.12.3.1",
+ 	  	 "log" : "stdout",
+ 		 "pattern" : "sstorage"}
+ 		,
+ 		{"desc" : "check target",
+ 		 "cmd" : "sudo /sbin/iscsiadm -m node",
+ 	  	 "log" : "stdout",
+ 		 "pattern" : "sstorage"}
+ 		,
+ 		{"desc" : "login 1",
+ 		 "cmd" : "sudo /sbin/iscsiadm -m node -T iqn.2001-04.jp.co.isp.lb.rudolph:sstorage -p 10.12.3.1:3260,1 --login | sleep 1",
+ 	  	 "log" : "sudo tail /var/log/messages |",
+ 		 "pattern" : "Attached scsi disk sda"}
+ 		,
+ 		{"desc" : "create partition -- sfdisk",
+ 		 "cmd" : "sudo /sbin/sfdisk --no-reread /dev/sda < sfdisk.dump",
+ 	  	 "log" : "stderr",
+ 		 "pattern" : "Successfully wrote the new partition table"}
+		,
+ 		{"desc" : "check partition list -- fdisk",
+ 		 "cmd" : "sudo /sbin/fdisk -l /dev/sda",
+ 	  	 "log" : "stdout",
+ 		 "pattern" : "sda1"}
+		,
+ 		{"desc" : "format with ext3",
+ 		 "cmd" : "sudo /sbin/mke2fs -j /dev/sda1",
+ 	  	 "log" : "stderr",
+ 		 "pattern" : "Writing superblocks and filesystem accounting information: done"}
+		,
+ 		{"desc" : "logout",
+ 		 "cmd" : "sudo /sbin/iscsiadm -m node -T iqn.2001-04.jp.co.isp.lb.rudolph:sstorage -p 10.12.3.1:3260,1 --logout | sleep 1",
+ 	  	 "log" : "sudo tail /var/log/messages |",
+ 		 "pattern" : "Synchronizing SCSI cache"}
+		,
+ 		{"desc" : "login 2",
+ 		 "cmd" : "sudo /sbin/iscsiadm -m node -T iqn.2001-04.jp.co.isp.lb.rudolph:sstorage -p 10.12.3.1:3260,1 --login | sleep 1",
+ 	  	 "log" : "sudo tail /var/log/messages |",
+ 		 "pattern" : "Attached scsi disk sda"}
+ 		,
+ 		{"desc" : "mount",
+ 		 "cmd" : "sudo mount -t ext3 /dev/sda1 /tmp/iscsi | sleep 3",
+ 	  	 "log" : "sudo tail /var/log/messages |",
+ 		 "pattern" : "EXT3 FS on sda1"}
+		,
+ 		{"desc" : "check mount",
+ 		 "cmd" : "sleep 1",
+ 	  	 "log" : "df -k |",
+ 		 "pattern" : "sda1"}
+		,
+//  		{"desc" : "prepare md5sum",
+//  		 "cmd" : "wget -nv http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.21.tar.bz2 ; md5sum linux-2.6.21.tar.bz2 > linux-2.6.21.tar.bz2.md5sum ; sudo cp linux-2.6.21.tar.bz2 linux-2.6.21.tar.bz2.md5sum /tmp/iscsi",
+//  	  	 "log" : "ls -l /tmp/iscsi |",
+//  		 "pattern" : "linux"}
+  		{"desc" : "prepare md5sum",
+  		 "cmd" : "md5sum linux-2.6.21.tar.bz2 > linux-2.6.21.tar.bz2.md5sum ; sudo cp linux-2.6.21.tar.bz2 linux-2.6.21.tar.bz2.md5sum /tmp/iscsi",
+  	  	 "log" : "ls -l /tmp/iscsi |",
+  		 "pattern" : "linux"}
+		,
+ 		{"desc" : "umount",
+ 		 "cmd" : "sudo umount /tmp/iscsi",
+ 	  	 "log" : "df -k |",
+ 		 "pattern" : "Filesystem"}
+		,
+ 		{"desc" : "mount",
+ 		 "cmd" : "sudo mount -t ext3 /dev/sda1 /tmp/iscsi | sleep 1",
+ 	  	 "log" : "sudo tail /var/log/messages |",
+ 		 "pattern" : "EXT3 FS on sda1"}
+		,
+ 		{"desc" : "check md5sum",
+ 		 "cmd" : "cd /tmp/iscsi ; LANG=C md5sum -c linux-2.6.21.tar.bz2.md5sum ; cd -",
+ 	  	 "log" : "stderr",
+ 		 "pattern" : "OK"}
+		,
+ 		{"desc" : "umount",
+ 		 "cmd" : "sudo umount /tmp/iscsi",
+ 	  	 "log" : "df -k |",
+ 		 "pattern" : "Filesystem"}
+		,
+ 		{"desc" : "logout",
+ 		 "cmd" : "sudo /sbin/iscsiadm -m node -T iqn.2001-04.jp.co.isp.lb.rudolph:sstorage -p 10.12.3.1:3260,1 --logout | sleep 1",
+ 	  	 "log" : "sudo tail /var/log/messages |",
+ 		 "pattern" : "Synchronizing SCSI cache"}
+	]
+	,
+	"post" : [
+ 		{"desc" : "logout",
+ 		 "cmd" : "sudo /sbin/iscsiadm -m node -T iqn.2001-04.jp.co.isp.lb.rudolph:sstorage -p 10.12.3.1:3260,1 --logout"}
+		,
+		{"desc" : "delete target",
+		 "cmd" : "sudo /sbin/iscsiadm --mode node -o delete -T iqn.2001-04.jp.co.isp.lb.rudolph:sstorage -p 10.12.3.1:3260"}
+		,
+		{"desc" : "remove temporal mount point",
+		 "cmd" : "rmdir /tmp/iscsi"}
+	]
+}

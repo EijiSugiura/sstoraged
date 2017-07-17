@@ -1,0 +1,79 @@
+#!/bin/bash
+#
+# sstoraged	Software Storage (iSCSI target) daemon init script
+#
+# chkconfig: 345 50 50
+# description: Software Storage (iSCSI target) daemon
+# pidfile: /var/run/sstoraged.pid
+
+# Source function library.
+. /etc/init.d/functions
+
+PROGRAM=sstoraged
+CONFIGFILE=/etc/sstorage/sstoraged.conf
+
+[ -f /usr/sbin/sstoraged ] || exit 0
+
+# Source config
+if [ -f /etc/sysconfig/$PROGRAM ] ; then
+	. /etc/sysconfig/$PROGRAM
+else
+	COMMAND_LINE_OPTIONS=""
+fi
+
+RETVAL=0
+
+umask 077
+
+start() {
+ 	echo -n $"Starting $PROGRAM: "
+	daemon $PROGRAM $COMMAND_LINE_OPTIONS
+	RETVAL=$?
+	echo
+	[ $RETVAL -eq 0 ] && touch /var/lock/subsys/$PROGRAM
+	return $RETVAL
+}	
+stop() {
+	echo -n $"Shutting down $PROGRAM: "
+	killproc $PROGRAM
+	RETVAL=$?
+	echo
+	rm -f /var/run/${PROGRAM}.pid
+	[ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/$PROGRAM
+	return $RETVAL
+}
+rhstatus() {
+	status $PROGRAM
+}
+#condrestart() {
+# 	echo -n $"Restarting $PROGRAM: "
+#	killproc $PROGRAM -HUP
+#	RETVAL=$?
+#	echo
+#	return $RETVAL
+#}	
+
+case "$1" in
+  start)
+  	start
+	;;
+  stop)
+  	stop
+	;;
+  status)
+  	rhstatus
+	;;
+  restart|reload)
+  	stop
+	start
+	;;
+#  condrestart)
+#  	[ -f /var/lock/subsys/$PROGRAM ] && condrestart || :
+#	;;
+  *)
+	echo $"Usage: $0 {start|stop|status|restart}"
+	exit 1
+esac
+
+exit $?
+

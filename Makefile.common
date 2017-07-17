@@ -1,0 +1,16 @@
+AM_CFLAGS=-Wall -D_GNU_SOURCE -D_FORTIFY_SOURCE=1 -D_REENTRANT
+AM_CXXFLAGS=-Wall -D_GNU_SOURCE -D_FORTIFY_SOURCE=1 -D_REENTRANT
+#AM_CPPFLAGS=-I/mingw/include/boost-1_34_1
+
+#AM_CFLAGS=-Wall -D_GNU_SOURCE -D_FORTIFY_SOURCE=1 -fmudflapth -D_REENTRANT
+#AM_CXXFLAGS=-Wall -D_GNU_SOURCE -D_FORTIFY_SOURCE=1 -fmudflapth -D_REENTRANT
+#AM_LDFLAGS=-lmudflapth
+
+#AM_CFLAGS=-pg -Wall -D_GNU_SOURCE -D_FORTIFY_SOURCE=1 -D_REENTRANT
+#AM_CXXFLAGS=-pg -Wall -D_GNU_SOURCE -D_FORTIFY_SOURCE=1 -D_REENTRANT
+
+#LIBS=-lefence -lpthread 
+#LIBS=-lmpatrolmt -lbfd -liberty -lelf -lpthread
+#LIBS=-lboost_iostreams -lboost_regex -lboost_thread-mt -llog4cxx -laio
+LIBS=$(BOOST_IOSTREAMS_LIB) $(BOOST_REGEX_LIB) $(BOOST_THREAD_LIB) -llog4cxx -laio
+
