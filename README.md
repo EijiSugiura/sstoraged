@@ -28,14 +28,14 @@ $ make install
 ## Build step by step
 
 - Build
- - Setup initial source tree
+    - Setup initial source tree
 ```
 $ autoscan
 $ mv configure.scan configure.in
 # Edit configure.in...
 # Create Makefile.am...
 ```
- - Rebuild after file/directory added
+    - Rebuild after file/directory added
 ```
 # Edit Makefile.am...
 $ autoreconf -fiv
@@ -50,11 +50,11 @@ $ make install
 ## Configuration
 
 - Create LUN image
- - Create LUN image directory
+    - Create LUN image directory
 ```
 # mkdir -p /var/lib/iscsi/luns
 ```
- - Create LUN image file : create 32GB LUN image file.
+    - Create LUN image file : create 32GB LUN image file.
 ```
 # dd if=/dev/zero of=/var/lib/iscsi/luns/disk1.img count=0 bs=1 seek=32G
 ```
@@ -143,6 +143,7 @@ Login to [iface: default, target: iqn.2006-com.example.isp:sStorage, portal: 192
 tcp: [1] 192.168.0.254:3260,1 iqn.2006-12.com.example:sStorage
 ```
 - Check the partitions, in this case detected as "sdb"
+```
 [initiator] ~ # cat /proc/partitions
 major minor  #blocks  name
 
@@ -152,6 +153,7 @@ major minor  #blocks  name
  254        0     265072 dm-0
  254        1     690795 dm-1
    8       16   33554432 sdb
+```
 - Check the /var/log/meesages, sStorage is detected.
 ```
 2017-07-16 18:07:01 initiator scsi4 : iSCSI Initiator over TCP/IP
