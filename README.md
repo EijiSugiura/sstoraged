@@ -27,7 +27,7 @@ $ make install
 
 ## Build step by step
 
-- Build
+- Build from source case 1
     - Setup initial source tree
 ```
 $ autoscan
@@ -35,6 +35,7 @@ $ mv configure.scan configure.in
 # Edit configure.in...
 # Create Makefile.am...
 ```
+- Build from source case 2
     - Rebuild after file/directory added
 ```
 # Edit Makefile.am...
@@ -50,14 +51,8 @@ $ make install
 ## Configuration
 
 - Create LUN image
-    - Create LUN image directory
-```
-# mkdir -p /var/lib/iscsi/luns
-```
-    - Create LUN image file : create 32GB LUN image file.
-```
-# dd if=/dev/zero of=/var/lib/iscsi/luns/disk1.img count=0 bs=1 seek=32G
-```
+    - Create LUN image directory ` mkdir -p /var/lib/iscsi/luns`
+    - Create LUN image file : create 32GB LUN image file. `# dd if=/dev/zero of=/var/lib/iscsi/luns/disk1.img count=0 bs=1 seek=32G`
 - sstoraged configuration : sstoraged's configuration file is "/etc/sstorage/sstoraged.conf"
 Configuration details are described in https://github.com/EijiSugiura/sstoraged/blob/master/man/sstoraged.conf.pod.
 - Minimum configuration file is as follows.
