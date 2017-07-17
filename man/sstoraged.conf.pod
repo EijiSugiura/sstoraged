@@ -41,7 +41,7 @@ General setting attributes are as follows.
 Default iSCSI target name, served to initiator.
 
  Default
- "GlobalTargetName" : "iqn.2006-12.jp.isp:sStorage",
+ "GlobalTargetName" : "iqn.2006-12.com.example:sStorage",
 
 Length MIN. 1 - to - MAX. PATH_MAX
 
@@ -50,7 +50,7 @@ Length MIN. 1 - to - MAX. PATH_MAX
 Local target name, used within B<sstoraged> clouds only, NOT served to initiator.
 
  Default
- "LocalTargetName" : "iqn.2006-12.jp.isp:sStorage0",
+ "LocalTargetName" : "iqn.2006-12.com.example:sStorage0",
 
 Length MIN. 1 - to - MAX. PATH_MAX
 
@@ -388,8 +388,8 @@ B<Count> is ending offset in storage at 512[B] units.
 
  {
  // General settings
- "GlobalTargetName" : "iqn.2006-12.jp.isp:sStorage",
- "LocalTargetName" : "iqn.2006-12.jp.isp:sStorage0",
+ "GlobalTargetName" : "iqn.2006-12.com.example:sStorage",
+ "LocalTargetName" : "iqn.2006-12.com.example:sStorage0",
  "TargetPort" : ["[0.0.0.0]:3260"],
  "ConsolePort" : "[0.0.0.0]:32680",
  "LogFile" : "/var/log/sstoraged/system.log",
@@ -414,17 +414,17 @@ B<Count> is ending offset in storage at 512[B] units.
  "Target" : [
      {
          "TargetAlias"   : "sStorage0",
-         "TargetName"    : "iqn.2006-12.jp.isp:sStorage0",
+         "TargetName"    : "iqn.2006-12.com.example:sStorage0",
  	 "TargetAddress" : "[192.168.0.1]:3260"
      },
      {
  	 "TargetAlias"   : "sStorage1",
-         "TargetName"    : "iqn.2006-12.jp.isp:sStorage1",
+         "TargetName"    : "iqn.2006-12.com.example:sStorage1",
  	 "TargetAddress" : "[192.168.0.2]:3260"
      },
      {
 	 "TargetAlias"   : "sStorage2",
-         "TargetName"    : "iqn.2006-12.jp.isp:sStorage2",
+         "TargetName"    : "iqn.2006-12.com.example:sStorage2",
 	 "TargetAddress" : "[192.168.0.3]:3260"
      }
  ],
@@ -464,7 +464,7 @@ B<Count> is ending offset in storage at 512[B] units.
          "VolumeName" : "LV0",
          "Main" : [
              {
-                 "Host"  : "iqn.2006-12.jp.isp:sStorage0",
+                 "Host"  : "iqn.2006-12.com.example:sStorage0",
                  "Path"  : "/dev/sdc",
                  "Start" : 0,
                  "Count" : 1024
@@ -475,13 +475,13 @@ B<Count> is ending offset in storage at 512[B] units.
          "VolumeName" : "LV1",
          "Main" : [
              {
-                 "Host"  : "iqn.2006-12.jp.isp:sStorage0",
+                 "Host"  : "iqn.2006-12.com.example:sStorage0",
                  "Path"  : "/dev/sdb",
                  "Start" : 0,
                  "Count" : 1024
              },
              {
-                 "Host"  : "iqn.2006-12.jp.isp:sStorage1",
+                 "Host"  : "iqn.2006-12.com.example:sStorage1",
                  "Path"  : "/tmp/storage.dat",
                  "Start" : 0,
                  "Count" : 2048
@@ -490,7 +490,7 @@ B<Count> is ending offset in storage at 512[B] units.
          "Copy" : [
              [
                  {
-                     "Host"  : "iqn.2006-12.jp.isp:sStorage2",
+                     "Host"  : "iqn.2006-12.com.example:sStorage2",
                      "Path"  : "/tmp/storage.dat",
                      "Start" : 0,
                      "Count" : 3072
@@ -502,7 +502,7 @@ B<Count> is ending offset in storage at 512[B] units.
          "VolumeName" : "LV2",
          "Main" : [
              {
-                 "Host"  : "iqn.2006-12.jp.isp:sStorage1",
+                 "Host"  : "iqn.2006-12.com.example:sStorage1",
                  "Path"  : "/tmp/storage2.dat",
                  "Start" : 0,
                  "Count" : 1024

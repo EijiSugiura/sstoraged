@@ -1,7 +1,7 @@
 /** 
  * @file  task.h
  * @brief Task classes
- * @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+ * @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
  * @version $Id: task.h 312 2007-09-28 00:56:17Z sugiura $
  */
 #ifndef __SSTORAGE_TASK_H__

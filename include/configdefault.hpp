@@ -1,5 +1,5 @@
-	defaultValue["GlobalTargetName"] =	static_cast<string>("iqn.2006-12.jp.isp:sStorage");
-	defaultValue["LocalTargetName"] =	static_cast<string>("iqn.2006-12.jp.isp:sStorage0");
+	defaultValue["GlobalTargetName"] =	static_cast<string>("iqn.2006-12.com.example:sStorage");
+	defaultValue["LocalTargetName"] =	static_cast<string>("iqn.2006-12.com.example:sStorage0");
 	defaultValue["ConsolePort"] =	static_cast<string>("[0.0.0.0]:32680");
 	defaultValue["LogFile"] =	static_cast<string>("/var/log/sstoraged/system.log");
 	defaultValue["LogLevel"] =	static_cast<string>("info");

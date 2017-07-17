@@ -1,7 +1,7 @@
 /**
    @file maintenancein.h
    @brief SCSI MaintenanceIn handler
-   @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+   @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
    @version $Id: maintenancein.h 228 2007-07-23 04:42:42Z sugiura $
  */
 

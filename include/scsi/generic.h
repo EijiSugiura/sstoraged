@@ -1,7 +1,7 @@
 /** 
  * @file  scsi/generic.h
  * @brief SCSI generic header definitions
- * @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+ * @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
  * @version $Id: generic.h 228 2007-07-23 04:42:42Z sugiura $
  */
 #ifndef __SCSI_GENERIC_H__

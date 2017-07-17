@@ -1,7 +1,7 @@
 /**
    @file filehandle.h
    @brief File handling classes
-   @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+   @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
    @version $Id: filehandle.h 312 2007-09-28 00:56:17Z sugiura $
  */
 #ifndef __FILEHANDLE_H__

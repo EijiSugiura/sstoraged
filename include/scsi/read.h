@@ -1,7 +1,7 @@
 /**
    @file read.h
    @brief SCSI Read handler
-   @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+   @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
    @version $Id: read.h 160 2007-06-30 09:39:50Z sugiura $
  */
 

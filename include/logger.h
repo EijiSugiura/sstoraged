@@ -1,7 +1,7 @@
 /** 
  * @file  logger.h
  * @brief logger definitions
- * @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+ * @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
  * @version $Id: logger.h 313 2007-09-28 01:35:55Z sugiura $
  */
 #ifndef __LOGGER_H__

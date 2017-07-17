@@ -2,8 +2,8 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.59)
-AC_INIT(sstoraged, 0.1.2, sugiura@isp.co.jp)
-AM_INIT_AUTOMAKE(sstoraged, 0.1.2, no-define)
+AC_INIT(sstoraged, 0.1.3, eiji.sugiura@gmail.com)
+AM_INIT_AUTOMAKE(sstoraged, 0.1.3, no-define)
 AC_CONFIG_SRCDIR([src/main.cpp])
 AC_CONFIG_HEADER([include/config.h])
 AC_CONFIG_MACRO_DIR([m4])

@@ -1,7 +1,7 @@
 /**
    @file keyvalue.h
    @brief iSCSI Key/Value pair validators
-   @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+   @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
    @version $Id: keyvalue.h 146 2007-06-20 13:54:08Z sugiura $
  */
 

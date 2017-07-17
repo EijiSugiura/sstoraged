@@ -1,7 +1,7 @@
 /** 
  * @file  diskwriter.h
  * @brief DiskWriter classes
- * @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+ * @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
  * @version $Id: diskwriter.h 292 2007-08-27 05:36:39Z sugiura $
  */
 #ifndef __SSTORAGE_DISKWRITER_H__

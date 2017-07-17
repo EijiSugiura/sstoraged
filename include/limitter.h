@@ -1,7 +1,7 @@
 /**
    @file limitter.h
    @brief Limitter classes
-   @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+   @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
    @version $Id: session.h 225 2007-07-20 03:07:33Z sugiura $
  */
 

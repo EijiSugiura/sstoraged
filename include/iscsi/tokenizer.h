@@ -1,7 +1,7 @@
 /**
    @file tokenizer.h
    @brief iSCSI protocol tokenizer
-   @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+   @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
    @version $Id: tokenizer.h 140 2007-06-14 06:15:02Z sugiura $
  */
 

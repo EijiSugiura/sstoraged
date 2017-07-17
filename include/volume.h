@@ -1,7 +1,7 @@
 /**
    @file volume.h
    @brief Volume classes
-   @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+   @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
    @version $Id: volume.h 212 2007-07-18 06:54:55Z sugiura $
  */
 #ifndef __ISCSI_VOLUME_H__

@@ -1,7 +1,7 @@
 /**
    @file counter.h
    @brief Counter utility classes
-   @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+   @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
    @version $Id: counter.h 289 2007-08-21 16:36:29Z sugiura $
  */
 #ifndef __COUNTER_H__

@@ -1,7 +1,7 @@
 /** 
  * @file  iscsi/protocol.h
  * @brief iSCSI common definitions
- * @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+ * @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
  * @version $Id: protocol.h 150 2007-06-27 04:49:46Z sugiura $
  */
 #ifndef __ISCSI_PROTOCOL_H__

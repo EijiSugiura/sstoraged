@@ -1,7 +1,7 @@
 /**
    @file rootvalidator.h
    @brief Root Validator
-   @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+   @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
    @version $Id: rootvalidator.h 91 2007-05-22 06:54:44Z sugiura $
  */
 #ifndef __ROOT_VALIDATOR_H__

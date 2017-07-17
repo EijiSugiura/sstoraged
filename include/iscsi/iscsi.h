@@ -1,7 +1,7 @@
 /** 
  * @file  iscsi/iscsi.h
  * @brief iSCSI header definitions
- * @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+ * @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
  * @version $Id: iscsi.h 312 2007-09-28 00:56:17Z sugiura $
  */
 #ifndef __ISCSI_ISCSI_H__

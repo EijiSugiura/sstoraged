@@ -1,7 +1,7 @@
 /**
    @file configurator.h
    @brief Configurator
-   @author Eiji Sugiura <sugiura@isp.co.jp> Research Institute of Systems Planning, Inc
+   @author Eiji Sugiura <eiji.sugiura@gmail.com> Research Institute of Systems Planning, Inc
    @version $Id: configurator.h 102 2007-05-29 01:35:12Z sugiura $
  */
 #ifndef __CONFIGURATOR_H__
